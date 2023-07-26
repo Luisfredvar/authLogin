@@ -1,6 +1,6 @@
 import  express  from "express";
 import morgan from "morgan";
-import router from './src/routes/routesUsers'
+import authRoutes from './src/routes/auth.routes.js'
 import cors from 'cors'
 
 
@@ -9,6 +9,6 @@ app.use(express.json());
 app.use(cors());
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended:false}))
-app.use('/api', router);
+app.use("/api", authRoutes);
 
 export default app;
