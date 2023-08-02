@@ -1,1 +1,1 @@
-export const SECRET_TOKEN = 'secretisimonoloadivinas'
+export const SECRET_TOKEN = 'secretoToken'
