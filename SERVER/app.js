@@ -8,7 +8,7 @@ import cookieParser from "cookie-parser";
 const app = express();
 app.use(express.json());
 app.use(cors());
-app.use(morgan('dev'));
+app.use(morgan('dev'));// Uses to see request on console
 app.use(cookieParser());
 app.use(express.urlencoded({extended:false}))
 app.use("/api", authRoutes);
