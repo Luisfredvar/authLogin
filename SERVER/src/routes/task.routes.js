@@ -1,11 +1,15 @@
 import { Router } from "express";
+import { CreateTask, DeleteTask, UpdateTask, getAllTasks, getTaskById } from "../controllers/task.controller.js";
+import { requiredAuth } from "../midlewares/tokenValidation.js";
+import { createSchema } from "../schemas/task.schema.js";
+import { validatorSchema } from "../midlewares/validator.meddleware.js";
 
 const router = Router();
 
-router.get('/task')
-router.get('/task/:id')
-router.post('/task')
-router.put('/task/:id')
-router.delete('/task/:id')
+router.get('/task', requiredAuth, getAllTasks)
+router.get('/task/:id', requiredAuth, getTaskById)
+router.post('/task', requiredAuth, validatorSchema(createSchema),CreateTask)
+router.put('/task/:id', requiredAuth, UpdateTask)
+router.delete('/task/:id', requiredAuth, DeleteTask)
 
-module.exports = router;
+export default router;

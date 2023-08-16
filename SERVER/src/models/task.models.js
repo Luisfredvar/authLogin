@@ -12,7 +12,14 @@ const taskSchema = new mongoose.Schema({
     date:{
         type: Date,
         default: Date.now
+    },
+    user:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        require: true
     }
-},{timestamps:true})
+},{
+    timestamps:true
+})
 
-export default mongoose.Schema('Task', taskSchema)
+export default mongoose.model('Task', taskSchema)
