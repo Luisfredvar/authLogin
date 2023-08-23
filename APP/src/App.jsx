@@ -1,6 +1,7 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
+import { AuthProvider } from './contexts/AuthContext';
 
 
 
@@ -8,7 +9,8 @@ import RegisterPage from './pages/RegisterPage';
 function App() {
   return (
     <>
-      <BrowserRouter>
+    <AuthProvider>
+    <BrowserRouter>
        <Routes>
          <Route path='/' element={<h1>Home</h1>}></Route>
          <Route path='/login' element={<LoginPage/>}></Route>
@@ -17,9 +19,10 @@ function App() {
          <Route path='/newTask' element={<h1>Create Task</h1>}></Route>
          <Route path='/editTask/:id' element={<h1>Update Task</h1>}></Route>
          <Route path='/profile' element={<h1>Profile</h1>}></Route>
-
        </Routes>
       </BrowserRouter>
+    </AuthProvider>
+     
     </>
   )
 }
