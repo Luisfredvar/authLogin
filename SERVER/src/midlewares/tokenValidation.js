@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import { SECRET_TOKEN } from '../../config.js';
-import { token } from 'morgan';
+
 
 export const requiredAuth = (req, res, next)=>{
     const {token} = req.cookies;
